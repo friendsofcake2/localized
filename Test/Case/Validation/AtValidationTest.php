@@ -31,12 +31,12 @@ class AtValidationTest extends CakeTestCase {
 		$this->assertFalse(AtValidation::postal('05110'));
 	}
 
-/**
- * test not implemented method
- *
- * @expectedException NotImplementedException
- */
-	public function testPhone() {
+    /**
+     * test not implemented method
+     */
+	public function testPhone(): void
+    {
+		$this->expectException(NotImplementedException::class);
 		AtValidation::phone('05110');
 	}
 
