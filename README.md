@@ -1,11 +1,11 @@
 # CakePHP 2 Localized plugin
 
-[![GitHub License](https://img.shields.io/github/license/friendsofcake2/dlocalized?label=License)](LICENSE)
-[![Packagist Version](https://img.shields.io/packagist/v/friendsofcake2/dlocalized?label=Packagist)](https://packagist.org/packages/friendsofcake2/dlocalized)
-[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/dlocalized/php?logo=php&logoColor=%23FFFFFF&label=PHP&labelColor=%23777BB4&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/dlocalized)
-[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/dlocalized/friendsofcake2/cakephp?logo=cakephp&logoColor=%23FFFFFF&label=CakePHP&labelColor=%23D33C43&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/dlocalized)
-[![CI](https://img.shields.io/github/actions/workflow/status/friendsofcake2/dlocalized/CI.yml?label=CI)](https://github.com/friendsofcake2/dlocalized/actions/workflows/CI.yml)
-[![Codecov](https://img.shields.io/codecov/c/gh/friendsofcake2/dlocalized?label=Coverage)](https://codecov.io/gh/friendsofcake2/dlocalized)
+[![GitHub License](https://img.shields.io/github/license/friendsofcake2/localized?label=License)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/friendsofcake2/localized?label=Packagist)](https://packagist.org/packages/friendsofcake2/localized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/localized/php?logo=php&logoColor=%23FFFFFF&label=PHP&labelColor=%23777BB4&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/localized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/localized/friendsofcake2/cakephp?logo=cakephp&logoColor=%23FFFFFF&label=CakePHP&labelColor=%23D33C43&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/localized)
+[![CI](https://img.shields.io/github/actions/workflow/status/friendsofcake2/localized/CI.yml?label=CI)](https://github.com/friendsofcake2/localized/actions/workflows/CI.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/friendsofcake2/localized?label=Coverage)](https://codecov.io/gh/friendsofcake2/localized)
 
 **This is forked for CakePHP2.**
 
