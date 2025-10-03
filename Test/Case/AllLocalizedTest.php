@@ -12,13 +12,15 @@
  * @license       https://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use PHPUnit\Framework\TestSuite;
+
 /**
  * AllLocalizedTests class
  *
  * This test group will run all tests.
  *
  */
-class AllLocalizedTests extends PHPUnit_Framework_TestSuite {
+class AllLocalizedTests extends TestSuite {
 
 /**
  * Suite define the tests for this suite

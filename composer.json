@@ -1,29 +1,33 @@
 {
-    "name": "cakephp/localized",
-    "description": "CakePHP Localized Plugin",
+    "name": "friendsofcake2/localized",
+    "description": "CakePHP 2 Localized Plugin",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "localized", "i18n", "l10n"],
-    "homepage": "https://github.com/cakephp/localized",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "CakePHP Community",
-            "homepage": "https://github.com/cakephp/localized/graphs/contributors"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/cakephp/localized/issues",
-        "forum": "https://stackoverflow.com/tags/cakephp",
-        "irc": "irc://irc.freenode.org/cakephp",
-        "source": "https://github.com/cakephp/localized"
-    },
     "require": {
-        "php": ">=5.3",
-        "composer/installers": "*"
+        "php": "^8.0",
+        "composer/installers": "*",
+        "friendsofcake2/cakephp": "^2.10"
+    },
+    "require-dev": {
+        "cakephp/cakephp-codesniffer": "^5.0",
+        "friendsofcake2/phpstan-cakephp2": "^0.2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^9.6"
+    },
+    "replace": {
+        "cakephp/localized": "^2.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3.x-dev"
+            "dev-2.x": "2.x-dev"
         },
         "installer-name": "Localized"
     }

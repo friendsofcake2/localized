@@ -1,6 +1,13 @@
-# CakePHP Localized plugin
-[![Build Status](https://secure.travis-ci.org/cakephp/localized.svg?branch=master)](https://travis-ci.org/cakephp/localized)
-[![License](https://poser.pugx.org/cakephp/localized/license.svg)](https://packagist.org/packages/cakephp/localized)
+# CakePHP 2 Localized plugin
+
+[![GitHub License](https://img.shields.io/github/license/friendsofcake2/dlocalized?label=License)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/friendsofcake2/dlocalized?label=Packagist)](https://packagist.org/packages/friendsofcake2/dlocalized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/dlocalized/php?logo=php&logoColor=%23FFFFFF&label=PHP&labelColor=%23777BB4&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/dlocalized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/dlocalized/friendsofcake2/cakephp?logo=cakephp&logoColor=%23FFFFFF&label=CakePHP&labelColor=%23D33C43&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/dlocalized)
+[![CI](https://img.shields.io/github/actions/workflow/status/friendsofcake2/dlocalized/CI.yml?label=CI)](https://github.com/friendsofcake2/dlocalized/actions/workflows/CI.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/friendsofcake2/dlocalized?label=Coverage)](https://codecov.io/gh/friendsofcake2/dlocalized)
+
+**This is forked for CakePHP2.**
 
 This plugin contains various localized validation classes for specific countries.
 
@@ -9,7 +16,7 @@ This plugin contains various localized validation classes for specific countries
 The master branch has the following requirements:
 
 * CakePHP 2.1.0 or greater.
-* PHP 5.3 or greater.
+* PHP 8.0 or greater.
 
 ## Installation
 
@@ -23,7 +30,7 @@ Ensure `require` is present in `composer.json`. This will install the plugin int
 ```
 {
     "require": {
-        "cakephp/localized": "2.4.*"
+        "friendsofcake2/localized": "^2.7"
     }
 }
 ```
@@ -121,4 +128,4 @@ Apart from that you can also define further validation methods in your implement
 
 ## Issues with Localized
 
-If you have issues with Localized, you can report them at https://github.com/cakephp/localized/issues
+If you have issues with Localized, you can report them at https://github.com/friendsofcake2/localized/issues
