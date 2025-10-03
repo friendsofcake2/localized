@@ -17,89 +17,93 @@ App::uses('RuValidation', 'Localized.Validation');
 
 /**
  * RuValidationTest
- *
  */
-class RuValidationTest extends CakeTestCase {
+class RuValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of RuValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(RuValidation::postal('101135'));
+        $this->assertTrue(RuValidation::postal('693000'));
 
-/**
- * test the postal method of RuValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(RuValidation::postal('101135'));
-		$this->assertTrue(RuValidation::postal('693000'));
+        $this->assertFalse(RuValidation::postal('100123'));
+        $this->assertFalse(RuValidation::postal('200321'));
+    }
 
-		$this->assertFalse(RuValidation::postal('100123'));
-		$this->assertFalse(RuValidation::postal('200321'));
-	}
+    /**
+     * test phone method of RuValidation
+     *
+     * @return void
+     */
+    public function testPhone(): void
+    {
+        $this->assertTrue(RuValidation::phone('+7 (342) 1234567'));
+        $this->assertTrue(RuValidation::phone('+7 (41144) 1234'));
+    }
 
-/**
- * test phone method of RuValidation
- *
- * @return void
- */
-	public function testPhone() {
-		$this->assertTrue(RuValidation::phone('+7 (342) 1234567'));
-		$this->assertTrue(RuValidation::phone('+7 (41144) 1234'));
-	}
+    /**
+     * test address method of RuValidation
+     *
+     * @return void
+     */
+    public function testAddress(): void
+    {
+        $this->assertTrue(RuValidation::address1('Московский пр., д. 100'));
+        $this->assertTrue(RuValidation::address1('Moskovskiy ave., bld. 100'));
 
-/**
- * test address method of RuValidation
- *
- * @return void
- */
-	public function testAddress() {
-		$this->assertTrue(RuValidation::address1('Московский пр., д. 100'));
-		$this->assertTrue(RuValidation::address1('Moskovskiy ave., bld. 100'));
+        $this->assertFalse(RuValidation::address1('I would not tell'));
+    }
 
-		$this->assertFalse(RuValidation::address1('I would not tell'));
-	}
+    /**
+     * test passport method of RuValidation
+     *
+     * @return void
+     */
+    public function testPassport(): void
+    {
+        $this->assertTrue(RuValidation::passport('1234 123456'));
 
-/**
- * test passport method of RuValidation
- *
- * @return void
- */
-	public function testPassport() {
-		$this->assertTrue(RuValidation::passport('1234 123456'));
+        $this->assertFalse(RuValidation::passport('1234 1234567'));
+        $this->assertFalse(RuValidation::passport('1234123456'));
+        $this->assertFalse(RuValidation::passport('1234 1x3456'));
+    }
 
-		$this->assertFalse(RuValidation::passport('1234 1234567'));
-		$this->assertFalse(RuValidation::passport('1234123456'));
-		$this->assertFalse(RuValidation::passport('1234 1x3456'));
-	}
-/**
- * test vatin method of RuValidation
- *
- * @return void
- */
-	public function testVatin() {
-		$this->assertTrue(RuValidation::vatin('7710140679'));
-		$this->assertTrue(RuValidation::vatin('772807592828'));
+    /**
+     * test vatin method of RuValidation
+     *
+     * @return void
+     */
+    public function testVatin(): void
+    {
+        $this->assertTrue(RuValidation::vatin('7710140679'));
+        $this->assertTrue(RuValidation::vatin('772807592828'));
 
-		$this->assertFalse(RuValidation::vatin('12345'));
+        $this->assertFalse(RuValidation::vatin('12345'));
 
-		// invalid checksums
-		$this->assertFalse(RuValidation::vatin('7710140670'));
-		$this->assertFalse(RuValidation::vatin('772807592837'));
-	}
+        // invalid checksums
+        $this->assertFalse(RuValidation::vatin('7710140670'));
+        $this->assertFalse(RuValidation::vatin('772807592837'));
+    }
 
-/**
- * test snils method of RuValidation
- *
- * @return void
- *
- * @covers RuValidation::personId
- * @covers RuValidation::snils
- */
-	public function testSnils() {
-		$this->assertTrue(RuValidation::snils('112-233-445 95'));
-		$this->assertTrue(RuValidation::snils('032-032-952 00'));
+    /**
+     * test snils method of RuValidation
+     *
+     * @return void
+     * @covers RuValidation::personId
+     * @covers RuValidation::snils
+     */
+    public function testSnils(): void
+    {
+        $this->assertTrue(RuValidation::snils('112-233-445 95'));
+        $this->assertTrue(RuValidation::snils('032-032-952 00'));
 
-		$this->assertFalse(RuValidation::snils('03203295200'));
+        $this->assertFalse(RuValidation::snils('03203295200'));
 
-		// invalid checksum
-		$this->assertFalse(RuValidation::snils('112-233-445 96'));
-	}
-
+        // invalid checksum
+        $this->assertFalse(RuValidation::snils('112-233-445 96'));
+    }
 }

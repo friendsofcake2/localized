@@ -17,18 +17,17 @@ App::uses('ChValidation', 'Localized.Validation');
 
 /**
  * ChValidationTest
- *
  */
-class ChValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of ChValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(ChValidation::postal('5112'));
-		$this->assertFalse(ChValidation::postal('05112'));
-	}
-
+class ChValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of ChValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(ChValidation::postal('5112'));
+        $this->assertFalse(ChValidation::postal('05112'));
+    }
 }

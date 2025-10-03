@@ -17,17 +17,17 @@ App::uses('CaValidation', 'Localized.Validation');
 
 /**
  * CaValidationTest
- *
  */
-class CaValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of CaValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(CaValidation::postal('L4W 1S2'));
-		$this->assertFalse(CaValidation::postal('LI4 SOC'));
-	}
+class CaValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of CaValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(CaValidation::postal('L4W 1S2'));
+        $this->assertFalse(CaValidation::postal('LI4 SOC'));
+    }
 }

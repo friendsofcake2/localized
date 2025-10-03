@@ -12,25 +12,26 @@
  * @license       https://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestSuite;
 
 /**
  * AllLocalizedTests class
  *
  * This test group will run all tests.
- *
  */
-class AllLocalizedTests extends TestSuite {
+class AllLocalizedTests extends TestSuite
+{
+    /**
+     * Suite define the tests for this suite
+     *
+     * @return Test
+     */
+    public static function suite(): Test
+    {
+        $suite = new CakeTestSuite('All Tests');
+        $suite->addTestDirectoryRecursive(CakePlugin::path('Localized') . 'Test' . DS . 'Case' . DS);
 
-/**
- * Suite define the tests for this suite
- *
- * @return void
- */
-	public static function suite() {
-		$suite = new CakeTestSuite('All Tests');
-		$suite->addTestDirectoryRecursive(CakePlugin::path('Localized') . 'Test' . DS . 'Case' . DS);
-
-		return $suite;
-	}
+        return $suite;
+    }
 }

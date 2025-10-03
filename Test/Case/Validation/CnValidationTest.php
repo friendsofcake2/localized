@@ -17,58 +17,59 @@ App::uses('CnValidation', 'Localized.Validation');
 
 /**
  * CnValidationTest
- *
  */
-class CnValidationTest extends CakeTestCase {
+class CnValidationTest extends CakeTestCase
+{
+    /**
+     * test the phone method of CnValidation
+     *
+     * @return void
+     */
+    public function testPhone(): void
+    {
+        $this->assertTrue(CnValidation::phone('+86-010-27738066'));
+        $this->assertTrue(CnValidation::phone('13901005000'));
+        $this->assertTrue(CnValidation::phone('008613901005000'));
+        $this->assertTrue(CnValidation::phone('+8613901005000'));
+        $this->assertTrue(CnValidation::phone('010-1234567'));
+        $this->assertTrue(CnValidation::phone('0591-88888888'));
+        $this->assertTrue(CnValidation::phone('010-12345678-123'));
+        $this->assertFalse(CnValidation::phone('123123'));
+        $this->assertFalse(CnValidation::phone('123123123xx'));
+        $this->assertFalse(CnValidation::phone('0591-110'));
+        $this->assertFalse(CnValidation::phone('1234567'));
+    }
 
-/**
- * test the phone method of CnValidation
- *
- * @return void
- */
-	public function testPhone() {
-		$this->assertTrue(CnValidation::phone('+86-010-27738066'));
-		$this->assertTrue(CnValidation::phone('13901005000'));
-		$this->assertTrue(CnValidation::phone('008613901005000'));
-		$this->assertTrue(CnValidation::phone('+8613901005000'));
-		$this->assertTrue(CnValidation::phone('010-1234567'));
-		$this->assertTrue(CnValidation::phone('0591-88888888'));
-		$this->assertTrue(CnValidation::phone('010-12345678-123'));
-		$this->assertFalse(CnValidation::phone('123123'));
-		$this->assertFalse(CnValidation::phone('123123123xx'));
-		$this->assertFalse(CnValidation::phone('0591-110'));
-		$this->assertFalse(CnValidation::phone('1234567'));
-	}
+    /**
+     * test the postal method of CnValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(CnValidation::postal('350000'));
+        $this->assertTrue(CnValidation::postal('123456'));
+        $this->assertFalse(CnValidation::postal('10075'));
+        $this->assertFalse(CnValidation::postal('10x'));
+        $this->assertFalse(CnValidation::postal('0851234'));
+    }
 
-/**
- * test the postal method of CnValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(CnValidation::postal('350000'));
-		$this->assertTrue(CnValidation::postal('123456'));
-		$this->assertFalse(CnValidation::postal('10075'));
-		$this->assertFalse(CnValidation::postal('10x'));
-		$this->assertFalse(CnValidation::postal('0851234'));
-	}
-
-/**
- * test the personId method of CnValidation
- *
- * @return void
- */
-	public function testPersonId() {
-		$this->assertTrue(CnValidation::personId('361181198507131951'));
-		$this->assertTrue(CnValidation::personId('361181197902271319'));
-		$this->assertTrue(CnValidation::personId('36118119780214411X'));
-		$this->assertTrue(CnValidation::personId('632321198701161557'));
-		$this->assertFalse(CnValidation::personId('123'));
-		$this->assertFalse(CnValidation::personId('1632321198701161557'));
-		$this->assertFalse(CnValidation::personId('X12312412412431233'));
-		$this->assertFalse(CnValidation::personId('361181198507131952'));
-		$this->assertFalse(CnValidation::personId('36118119790227131X'));
-		$this->assertFalse(CnValidation::personId('361181197802144119'));
-	}
-
+    /**
+     * test the personId method of CnValidation
+     *
+     * @return void
+     */
+    public function testPersonId(): void
+    {
+        $this->assertTrue(CnValidation::personId('361181198507131951'));
+        $this->assertTrue(CnValidation::personId('361181197902271319'));
+        $this->assertTrue(CnValidation::personId('36118119780214411X'));
+        $this->assertTrue(CnValidation::personId('632321198701161557'));
+        $this->assertFalse(CnValidation::personId('123'));
+        $this->assertFalse(CnValidation::personId('1632321198701161557'));
+        $this->assertFalse(CnValidation::personId('X12312412412431233'));
+        $this->assertFalse(CnValidation::personId('361181198507131952'));
+        $this->assertFalse(CnValidation::personId('36118119790227131X'));
+        $this->assertFalse(CnValidation::personId('361181197802144119'));
+    }
 }

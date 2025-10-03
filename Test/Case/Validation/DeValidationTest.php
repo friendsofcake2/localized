@@ -17,27 +17,28 @@ App::uses('DeValidation', 'Localized.Validation');
 
 /**
  * DeValidationTest
- *
  */
-class DeValidationTest extends CakeTestCase {
+class DeValidationTest extends CakeTestCase
+{
+    /**
+     * test the phone method of DeValidation
+     *
+     * @return void
+     */
+    public function testPhone(): void
+    {
+        $this->assertTrue(DeValidation::phone('0123456789'));
+        $this->assertFalse(DeValidation::phone('sometext'));
+    }
 
-/**
- * test the phone method of DeValidation
- *
- * @return void
- */
-	public function testPhone() {
-		$this->assertTrue(DeValidation::phone('0123456789'));
-		$this->assertFalse(DeValidation::phone('sometext'));
-	}
-
-/**
- * test the postal method of DeValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(DeValidation::postal('51109'));
-		$this->assertFalse(DeValidation::postal('051109'));
-	}
+    /**
+     * test the postal method of DeValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(DeValidation::postal('51109'));
+        $this->assertFalse(DeValidation::postal('051109'));
+    }
 }

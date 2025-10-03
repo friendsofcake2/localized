@@ -15,17 +15,17 @@ App::uses('GbValidation', 'Localized.Validation');
 
 /**
  * Gb Localized Validation class test case
- *
  */
-class GbValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of GbValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(GbValidation::postal('DT4 8PP'));
-		$this->assertFalse(GbValidation::postal('DT4-8PP'));
-	}
+class GbValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of GbValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(GbValidation::postal('DT4 8PP'));
+        $this->assertFalse(GbValidation::postal('DT4-8PP'));
+    }
 }

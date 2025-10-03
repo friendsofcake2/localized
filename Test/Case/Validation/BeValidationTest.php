@@ -17,17 +17,17 @@ App::uses('BeValidation', 'Localized.Validation');
 
 /**
  * BeValidationTest
- *
  */
-class BeValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of BeValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(BeValidation::postal('1804'));
-		$this->assertFalse(BeValidation::postal('01804'));
-	}
+class BeValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of BeValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(BeValidation::postal('1804'));
+        $this->assertFalse(BeValidation::postal('01804'));
+    }
 }

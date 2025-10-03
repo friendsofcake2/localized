@@ -17,19 +17,18 @@ App::uses('RoValidation', 'Localized.Validation');
 
 /**
  * RoValidationTest
- *
  */
-class RoValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of RoValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(RoValidation::postal('517006'));
-		$this->assertFalse(RoValidation::postal('23708'));
-		$this->assertFalse(RoValidation::postal('23 708'));
-	}
-
+class RoValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of RoValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(RoValidation::postal('517006'));
+        $this->assertFalse(RoValidation::postal('23708'));
+        $this->assertFalse(RoValidation::postal('23 708'));
+    }
 }

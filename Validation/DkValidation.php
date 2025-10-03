@@ -17,41 +17,43 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * DkValidation
- *
  */
-class DkValidation extends LocalizedValidation {
+class DkValidation extends LocalizedValidation
+{
+    /**
+     * Checks a social security number for Denmark.
+     *
+     * @param string $check The value to check.
+     * @return bool Success
+     */
+    public static function personId($check)
+    {
+        $pattern = '/\\A\\b[0-9]{6}-[0-9]{4}\\b\\z/i';
 
-/**
- * Checks a social security number for Denmark.
- *
- * @param string $check The value to check.
- * @return bool Success
- */
-	public static function personId($check) {
-		$pattern = '/\\A\\b[0-9]{6}-[0-9]{4}\\b\\z/i';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a postal code for Denmark.
- *
- * @param string $check The value to check.
- * @return bool Success
- * @throws NotImplementedException
- */
-	public static function postal($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+    /**
+     * Checks a postal code for Denmark.
+     *
+     * @param string $check The value to check.
+     * @return bool Success
+     * @throws NotImplementedException
+     */
+    public static function postal($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function phone($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
-
+    /**
+     * Checks a phone number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function phone($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }

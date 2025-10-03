@@ -17,17 +17,17 @@ App::uses('SkValidation', 'Localized.Validation');
 
 /**
  * SkValidationTest
- *
  */
-class SkValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of SkValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(SkValidation::postal('95616'));
-		$this->assertFalse(SkValidation::postal('0989'));
-	}
+class SkValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of SkValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(SkValidation::postal('95616'));
+        $this->assertFalse(SkValidation::postal('0989'));
+    }
 }

@@ -16,17 +16,17 @@ App::uses('HrValidation', 'Localized.Validation');
 
 /**
  * HrValidationTest
- *
  */
-class HrValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of HrValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(HrValidation::postal('25616'));
-		$this->assertFalse(HrValidation::postal('0989'));
-	}
+class HrValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of HrValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(HrValidation::postal('25616'));
+        $this->assertFalse(HrValidation::postal('0989'));
+    }
 }

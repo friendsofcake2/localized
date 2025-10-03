@@ -16,7 +16,8 @@ App::uses('GbValidation', 'Localized.Validation');
 /**
  * UK Localized Validation class. Handles localized validation for The United Kingdom
  *
- * @deprecated		Use GbValidation instead.
+ * @deprecated      Use GbValidation instead.
  */
-class UkValidation extends GbValidation {
+class UkValidation extends GbValidation
+{
 }

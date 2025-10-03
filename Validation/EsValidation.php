@@ -17,41 +17,44 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * EsValidation
- *
  */
-class EsValidation extends LocalizedValidation {
+class EsValidation extends LocalizedValidation
+{
+    /**
+     * Checks a postal code for Spain.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^(5[0-2]|[0-4][0-9])[0-9]{3}$/';
 
-/**
- * Checks a postal code for Spain.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/^(5[0-2]|[0-4][0-9])[0-9]{3}$/';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a phone number for Spain.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function phone($check) {
-		$pattern = '/^\\+?(34[-. ]?)?\\(?(([689]{1})(([0-9]{2})\\)?[-. ]?|([0-9]{1})\\)?[-. ]?([0-9]{1}))|70\\)?[-. ]?([0-9]{1}))([0-9]{2})[-. ]?([0-9]{1})[-. ]?([0-9]{1})[-. ]?([0-9]{2})$/';
-		return (bool)preg_match($pattern, $check);
-	}
+    /**
+     * Checks a phone number for Spain.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function phone($check)
+    {
+        $pattern = '/^\\+?(34[-. ]?)?\\(?(([689]{1})(([0-9]{2})\\)?[-. ]?|([0-9]{1})\\)?[-. ]?([0-9]{1}))|70\\)?[-. ]?([0-9]{1}))([0-9]{2})[-. ]?([0-9]{1})[-. ]?([0-9]{1})[-. ]?([0-9]{2})$/';
 
-/**
- * Checks a country specific identification number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function personId($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
+    /**
+     * Checks a country specific identification number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function personId($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }

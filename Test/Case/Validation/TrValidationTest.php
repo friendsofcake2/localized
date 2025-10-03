@@ -17,18 +17,18 @@ App::uses('TrValidation', 'Localized.Validation');
 
 /**
  * TrValidationTest
- *
  */
-class TrValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of TrValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(TrValidation::postal('02300'));
-		$this->assertFalse(TrValidation::postal('2300'));
-		$this->assertFalse(TrValidation::postal('230000'));
-	}
+class TrValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of TrValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(TrValidation::postal('02300'));
+        $this->assertFalse(TrValidation::postal('2300'));
+        $this->assertFalse(TrValidation::postal('230000'));
+    }
 }

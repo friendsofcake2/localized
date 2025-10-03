@@ -18,39 +18,43 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 /**
  * InValidation
  */
-class InValidation extends LocalizedValidation {
+class InValidation extends LocalizedValidation
+{
+    /**
+     * Validate postal code
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^\d{3}\s?\d{3}$/';
 
-/**
- * Validate postal code
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/^\d{3}\s?\d{3}$/';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Validate phone number
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function phone($check) {
-		$pattern = '/((\+*)((0[ -]+)*|(91 )*)(\d{12}+|\d{10}+))|\d{5}([- ]*)\d{6}/';
-		return (bool)preg_match($pattern, $check);
-	}
+    /**
+     * Validate phone number
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function phone($check)
+    {
+        $pattern = '/((\+*)((0[ -]+)*|(91 )*)(\d{12}+|\d{10}+))|\d{5}([- ]*)\d{6}/';
 
-/**
- * Checks an identification number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function personId($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
+    /**
+     * Checks an identification number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function personId($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }

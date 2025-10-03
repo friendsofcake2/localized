@@ -15,41 +15,45 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * LT Localized Validation class. Handles localized validation for the Lithuanian language
- *
  */
-class LtValidation extends LocalizedValidation {
+class LtValidation extends LocalizedValidation
+{
+    /**
+     * Checks a phone number for the Lithuania.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function phone($check)
+    {
+        $pattern = "/^(([\+]?370)|(8))[\s-]?\(?[0-9]{2,3}\)?[\s-]?([0-9]{2}[\s-]?){2}?[0-9]{1,2}$/";
 
-/**
- * Checks a phone number for the Lithuania.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function phone($check) {
-		$pattern = "/^(([\+]?370)|(8))[\s-]?\(?[0-9]{2,3}\)?[\s-]?([0-9]{2}[\s-]?){2}?[0-9]{1,2}$/";
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a postal code for the Lithuania.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/^(lt)?[\s-]?[\d]{5}$/i';
-		return (bool)preg_match($pattern, $check);
-	}
+    /**
+     * Checks a postal code for the Lithuania.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^(lt)?[\s-]?[\d]{5}$/i';
 
-/**
- * Checks a social security number for the Lithuania.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function personId($check) {
-		$pattern = '/^([a-z]{2})[\s-]?[\d]{7}$/i';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
+    /**
+     * Checks a social security number for the Lithuania.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function personId($check)
+    {
+        $pattern = '/^([a-z]{2})[\s-]?[\d]{7}$/i';
+
+        return (bool)preg_match($pattern, $check);
+    }
 }

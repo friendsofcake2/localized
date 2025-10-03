@@ -17,54 +17,57 @@ App::uses('PlValidation', 'Localized.Validation');
 
 /**
  * PlValidationTest
- *
  */
-class PlValidationTest extends CakeTestCase {
+class PlValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of PlValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(PlValidation::postal('63-400'));
+        $this->assertFalse(PlValidation::postal('63400'));
+        $this->assertFalse(PlValidation::postal('634-00'));
+    }
 
-/**
- * test the postal method of PlValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(PlValidation::postal('63-400'));
-		$this->assertFalse(PlValidation::postal('63400'));
-		$this->assertFalse(PlValidation::postal('634-00'));
-	}
+    /**
+     * test the ssn method of PlValidation
+     *
+     * @return void
+     */
+    public function testSsn(): void
+    {
+        $this->assertTrue(PlValidation::ssn('768-000-24-66'));
+        $this->assertTrue(PlValidation::ssn('768-00-02-466'));
+        $this->assertTrue(PlValidation::ssn('7680002466'));
+        $this->assertFalse(PlValidation::ssn('768-000-24-65'));
+        $this->assertFalse(PlValidation::ssn('769-000-24-66'));
+        $this->assertFalse(PlValidation::ssn('7680002566'));
+    }
 
-/**
- * test the ssn method of PlValidation
- *
- * @return void
- */
-	public function testSsn() {
-		$this->assertTrue(PlValidation::ssn('768-000-24-66'));
-		$this->assertTrue(PlValidation::ssn('768-00-02-466'));
-		$this->assertTrue(PlValidation::ssn('7680002466'));
-		$this->assertFalse(PlValidation::ssn('768-000-24-65'));
-		$this->assertFalse(PlValidation::ssn('769-000-24-66'));
-		$this->assertFalse(PlValidation::ssn('7680002566'));
-	}
+    /**
+     * Test the pesel method of PlValidation
+     *
+     * @return void
+     */
+    public function testPesel(): void
+    {
+        $this->assertTrue(PlValidation::pesel('49040501580'));
+        $this->assertFalse(PlValidation::pesel('49040501680'));
+        $this->assertFalse(PlValidation::pesel('49040501581'));
+    }
 
-/**
- * Test the pesel method of PlValidation
- *
- * @return void
- */
-	public function testPesel() {
-		$this->assertTrue(PlValidation::pesel('49040501580'));
-		$this->assertFalse(PlValidation::pesel('49040501680'));
-		$this->assertFalse(PlValidation::pesel('49040501581'));
-	}
-
-/**
- * Test the regon method of PlValidation
- *
- * @return void
- */
-	public function testRegon() {
-		$this->assertTrue(PlValidation::regon('590096454'));
-		$this->assertFalse(PlValidation::regon('590096453'));
-		$this->assertFalse(PlValidation::regon('591096454'));
-	}
+    /**
+     * Test the regon method of PlValidation
+     *
+     * @return void
+     */
+    public function testRegon(): void
+    {
+        $this->assertTrue(PlValidation::regon('590096454'));
+        $this->assertFalse(PlValidation::regon('590096453'));
+        $this->assertFalse(PlValidation::regon('591096454'));
+    }
 }

@@ -15,42 +15,42 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * Iranian Localized Validation class. Handles localized validation for Iran.
- *
  */
 class IrValidation extends LocalizedValidation
 {
-
-/**
- * Checks for Persian/Farsi characters and number an zero width non-joiner space.
- * Also accepts latin numbers preventing potential problem until PHP becomes fully unicode compatible.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Checks for Persian/Farsi characters and number an zero width non-joiner space.
+     * Also accepts latin numbers preventing potential problem until PHP becomes fully unicode compatible.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function alphaNumeric($check): bool
     {
         $pattern = '/[^\x{0600}-\x{06FF}\x{FB50}-\x{FDFD}\x{FE70}-\x{FEFF}\x{0750}-\x{077F}0-9\s\x{200C}]+/u';
+
         return !preg_match($pattern, $check);
     }
 
-/**
- * Checks for Persian/Farsi digits only and won't accept Arabic and Latin digits.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-    public static function numeric($check): bool {
+    /**
+     * Checks for Persian/Farsi digits only and won't accept Arabic and Latin digits.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function numeric($check): bool
+    {
         $pattern = '/[^\x{06F0}-\x{06F9}]+/u';
 
         return !preg_match($pattern, $check);
     }
 
-/**
- * Validation of Iran credit card numbers.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Validation of Iran credit card numbers.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function cc($check): bool
     {
         $pattern = '/[0-9]{4}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/';
@@ -58,36 +58,38 @@ class IrValidation extends LocalizedValidation
         return (bool)preg_match($pattern, $check);
     }
 
-/**
- * Checks a phone number for Iran.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Checks a phone number for Iran.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function phone($check): bool
     {
         $pattern = '/^[- .\(\)]?((98)|(\+98)|(0098)|0){1}[- .\(\)]{0,3}[1-9]{1}[0-9]{1,}[- .\(\)]*[0-9]{3,8}[- .\(\)]?$/';
+
         return (bool)preg_match($pattern, $check);
     }
 
-/**
- * Checks mobile numbers for Iran.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Checks mobile numbers for Iran.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function mobile($check): bool
     {
         $pattern = '/^[- .\(\)]?((98)|(\+98)|(0098)|0){1}[- .\(\)]{0,3}((91)|(92)|(93)){1}[0-9]{8}$/';
+
         return (bool)preg_match($pattern, $check);
     }
 
-/**
- * Checks a postal code for Iran.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Checks a postal code for Iran.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function postal($check): bool
     {
         $pattern = '/^\d{10}$/';
@@ -95,12 +97,12 @@ class IrValidation extends LocalizedValidation
         return (bool)preg_match($pattern, $check);
     }
 
-/**
- * Checks a social security number for Iran.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
+    /**
+     * Checks a social security number for Iran.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
     public static function personId($check): bool
     {
         $pattern = '/^\d{10}$/';
@@ -122,7 +124,7 @@ class IrValidation extends LocalizedValidation
         if ($remaining <= 1) {
             return (bool)($remaining == $check[9]);
         }
-        return (bool)((11 - $remaining) == $check[9]);
-    }
 
+        return (bool)($check[9] == 11 - $remaining);
+    }
 }

@@ -17,27 +17,26 @@ App::uses('AtValidation', 'Localized.Validation');
 
 /**
  * AtValidationTest
- *
  */
-class AtValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of AtValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(AtValidation::postal('5110'));
-		$this->assertFalse(AtValidation::postal('05110'));
-	}
+class AtValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of AtValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(AtValidation::postal('5110'));
+        $this->assertFalse(AtValidation::postal('05110'));
+    }
 
     /**
      * test not implemented method
      */
-	public function testPhone(): void
+    public function testPhone(): void
     {
-		$this->expectException(NotImplementedException::class);
-		AtValidation::phone('05110');
-	}
-
+        $this->expectException(NotImplementedException::class);
+        AtValidation::phone('05110');
+    }
 }

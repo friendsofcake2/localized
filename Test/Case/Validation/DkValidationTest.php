@@ -17,17 +17,17 @@ App::uses('DkValidation', 'Localized.Validation');
 
 /**
  * DkValidationTest
- *
  */
-class DkValidationTest extends CakeTestCase {
-
-/**
- * test the ssn method of DkValidation
- *
- * @return void
- */
-	public function testSsn() {
-		$this->assertTrue(DkValidation::ssn('111111-3334'));
-		$this->assertFalse(DkValidation::ssn('111111-333'));
-	}
+class DkValidationTest extends CakeTestCase
+{
+    /**
+     * test the ssn method of DkValidation
+     *
+     * @return void
+     */
+    public function testSsn(): void
+    {
+        $this->assertTrue(DkValidation::ssn('111111-3334'));
+        $this->assertFalse(DkValidation::ssn('111111-333'));
+    }
 }

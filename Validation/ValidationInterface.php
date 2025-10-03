@@ -13,32 +13,30 @@
 
 /**
  * ValidationInterface defining some common base validation methods.
- *
  */
-interface ValidationInterface {
+interface ValidationInterface
+{
+    /**
+     * Checks a phone number.
+     *
+     * @param string $string The value to check.
+     * @return bool Success.
+     */
+    public static function phone($string);
 
-/**
- * Checks a phone number.
- *
- * @param string $string The value to check.
- * @return bool Success.
- */
-	public static function phone($string);
+    /**
+     * Checks a postal code.
+     *
+     * @param string $string The value to check.
+     * @return bool Success.
+     */
+    public static function postal($string);
 
-/**
- * Checks a postal code.
- *
- * @param string $string The value to check.
- * @return bool Success.
- */
-	public static function postal($string);
-
-/**
- * Checks a country specific identification number.
- *
- * @param string $string The value to check.
- * @return bool Success.
- */
-	public static function personId($string);
-
+    /**
+     * Checks a country specific identification number.
+     *
+     * @param string $string The value to check.
+     * @return bool Success.
+     */
+    public static function personId($string);
 }

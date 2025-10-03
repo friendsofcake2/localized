@@ -16,41 +16,43 @@
 
 /**
  * RoValidation
- *
  */
-class RoValidation {
+class RoValidation
+{
+    /**
+     * Checks postal codes for Romania
+     *
+     * @param string $check The value to check.
+     * @return bool
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^[0-9]{6}$/';
 
-/**
- * Checks postal codes for Romania
- *
- * @param string $check The value to check.
- * @return bool
- */
-	public static function postal($check) {
-		$pattern = '/^[0-9]{6}$/';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function phone($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+    /**
+     * Checks a phone number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function phone($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 
-/**
- * Checks a country specific identification number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function personId($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
-
+    /**
+     * Checks a country specific identification number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function personId($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }

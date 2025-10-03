@@ -17,17 +17,17 @@ App::uses('CzValidation', 'Localized.Validation');
 
 /**
  * CzValidationTest
- *
  */
-class CzValidationTest extends CakeTestCase {
-
-/**
- * test the postal method of CzValidation
- *
- * @return void
- */
-	public function testPostal() {
-		$this->assertTrue(CzValidation::postal('123 45'));
-		$this->assertFalse(CzValidation::postal('95616'));
-	}
+class CzValidationTest extends CakeTestCase
+{
+    /**
+     * test the postal method of CzValidation
+     *
+     * @return void
+     */
+    public function testPostal(): void
+    {
+        $this->assertTrue(CzValidation::postal('123 45'));
+        $this->assertFalse(CzValidation::postal('95616'));
+    }
 }

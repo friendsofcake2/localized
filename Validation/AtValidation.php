@@ -17,41 +17,43 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * AtValidation
- *
  */
-class AtValidation extends LocalizedValidation {
-
-/**
- * Checks a postal code.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-    public static function postal($check) {
+class AtValidation extends LocalizedValidation
+{
+    /**
+     * Checks a postal code.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
         $pattern = '/^[0-9]{4}$/';
+
         return (bool)preg_match($pattern, $check);
     }
 
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-    public static function phone($check) {
+    /**
+     * Checks a phone number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function phone($check)
+    {
         throw new NotImplementedException('Validation method not implemented yet.');
     }
 
-/**
- * Checks a country specific identification number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-    public static function personId($check) {
+    /**
+     * Checks a country specific identification number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function personId($check)
+    {
         throw new NotImplementedException('Validation method not implemented yet.');
     }
-
 }

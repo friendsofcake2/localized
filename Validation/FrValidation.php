@@ -17,58 +17,62 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * FrValidation
- *
  */
-class FrValidation extends LocalizedValidation {
+class FrValidation extends LocalizedValidation
+{
+    /**
+     * Checks a phone number for France.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function phone($check)
+    {
+        $pattern = '/^0[1-9]{1}(([0-9]{8})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})|((\.[0-9]{2}){4}))$/';
 
-/**
- * Checks a phone number for France.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function phone($check) {
-		$pattern = '/^0[1-9]{1}(([0-9]{8})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})|((\.[0-9]{2}){4}))$/';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a postal code for France.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/^\d{5}$/';
-		return (bool)preg_match($pattern, $check);
-	}
+    /**
+     * Checks a postal code for France.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^\d{5}$/';
 
-/**
- * Checks a social security number for France.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function personId($check) {
-		$pattern = '/^[12]\d{2}(0\d|1[012])(\d{2}|2[AB])\d{8}$/';
-		if (!preg_match($pattern, $check)) {
-			return false;
-		}
+        return (bool)preg_match($pattern, $check);
+    }
 
-		$numberWithoutKey = substr($check, 0, -2);
-		$key = substr($check, -2);
+    /**
+     * Checks a social security number for France.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function personId($check)
+    {
+        $pattern = '/^[12]\d{2}(0\d|1[012])(\d{2}|2[AB])\d{8}$/';
+        if (!preg_match($pattern, $check)) {
+            return false;
+        }
 
-		// Corse special cases
-		// source : https://xml.insee.fr/schema/nir.html
-		// check : https://www.parodie.com/monetique/nir.htm
-		if ($numberWithoutKey[6] == 'A') {
-			$numberWithoutKey = str_replace('A', '0', $numberWithoutKey);
-			$numberWithoutKey -= 1000000;
-		} elseif ($numberWithoutKey[6] == 'B') {
-			$numberWithoutKey = str_replace('B', '0', $numberWithoutKey);
-			$numberWithoutKey -= 2000000;
-		}
-		return $key == (97 - ($numberWithoutKey - (floor($numberWithoutKey / 97) * 97)));
-	}
+        $numberWithoutKey = substr($check, 0, -2);
+        $key = substr($check, -2);
 
+        // Corse special cases
+        // source : https://xml.insee.fr/schema/nir.html
+        // check : https://www.parodie.com/monetique/nir.htm
+        if ($numberWithoutKey[6] == 'A') {
+            $numberWithoutKey = str_replace('A', '0', $numberWithoutKey);
+            $numberWithoutKey -= 1000000;
+        } elseif ($numberWithoutKey[6] == 'B') {
+            $numberWithoutKey = str_replace('B', '0', $numberWithoutKey);
+            $numberWithoutKey -= 2000000;
+        }
+
+        return $key == 97 - ($numberWithoutKey - (floor($numberWithoutKey / 97) * 97));
+    }
 }

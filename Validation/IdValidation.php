@@ -17,52 +17,56 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * IdValidation
- *
  */
-class IdValidation extends LocalizedValidation {
+class IdValidation extends LocalizedValidation
+{
+    /**
+     * Checks a postal code for Indonesia.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/[1-9][0-9]{4}/';
 
-/**
- * Checks a postal code for Indonesia.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/[1-9][0-9]{4}/';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Basic Check for Valid Mobile Mumbers for Indonesia.
- *
- * @param string $check The value to check.
- * @return bool Success.
- */
-	public static function mobile($check) {
-		$pattern = '/(^0|^62|\+62)(8[0-9]{8,10})$/';
-		return (bool)preg_match($pattern, $check);
-	}
+    /**
+     * Basic Check for Valid Mobile Mumbers for Indonesia.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     */
+    public static function mobile($check)
+    {
+        $pattern = '/(^0|^62|\+62)(8[0-9]{8,10})$/';
 
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function phone($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a country specific identification number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function personId($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+    /**
+     * Checks a phone number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function phone($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 
+    /**
+     * Checks a country specific identification number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function personId($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }

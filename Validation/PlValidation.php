@@ -15,122 +15,129 @@ App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * Polish Localized Validation class. Handles localized validation for Poland.
- *
  */
-class PlValidation extends LocalizedValidation {
+class PlValidation extends LocalizedValidation
+{
+    /**
+     * Checks a postal code for Poland.
+     *
+     * @param string $check Value to check
+     * @return bool Success.
+     */
+    public static function postal($check)
+    {
+        $pattern = '/^[0-9]{2}-[0-9]{3}$/D';
 
-/**
- * Checks a postal code for Poland.
- *
- * @param string $check Value to check
- * @return bool Success.
- */
-	public static function postal($check) {
-		$pattern = '/^[0-9]{2}-[0-9]{3}$/D';
-		return (bool)preg_match($pattern, $check);
-	}
+        return (bool)preg_match($pattern, $check);
+    }
 
-/**
- * Checks a social security number (NIP) for Poland.
- *
- * @param string $check Value to check
- * @return bool Success.
- * @link https://pl.wikipedia.org/wiki/NIP
- */
-	public static function personId($check) {
-		$pattern = '/^([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3})|([0-9]{10})$/';
-		if (!preg_match($pattern, $check)) {
-			return false;
-		}
+    /**
+     * Checks a social security number (NIP) for Poland.
+     *
+     * @param string $check Value to check
+     * @return bool Success.
+     * @link https://pl.wikipedia.org/wiki/NIP
+     */
+    public static function personId($check)
+    {
+        $pattern = '/^([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3})|([0-9]{10})$/';
+        if (!preg_match($pattern, $check)) {
+            return false;
+        }
 
-		$sum = 0;
-		$weights = array(6, 5, 7, 2, 3, 4, 5, 6, 7);
-		$check = str_replace('-', '', $check);
+        $sum = 0;
+        $weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+        $check = str_replace('-', '', $check);
 
-		for ($i = 0; $i < 9; $i++) {
-			$sum += $check[$i] * $weights[$i];
-		}
+        for ($i = 0; $i < 9; $i++) {
+            $sum += $check[$i] * $weights[$i];
+        }
 
-		$control = $sum % 11;
-		if ($control == 10) {
-			$control = 0;
-		}
+        $control = $sum % 11;
+        if ($control == 10) {
+            $control = 0;
+        }
 
-		if ($check[9] == $control) {
-			return true;
-		}
-		return false;
-	}
+        if ($check[9] == $control) {
+            return true;
+        }
 
-/**
- * Checks PESEL
- * Universal Electronic System for Registration of the Population in Poland
- *
- * @param string $check Value to check
- * @return bool Success.
- * @link https://pl.wikipedia.org/wiki/PESEL
- */
-	public static function pesel($check) {
-		$pattern = '/^[0-9]{11}$/';
-		if (preg_match($pattern, $check)) {
-			$sum = 0;
-			$weights = array(1, 3, 7, 9, 1, 3, 7, 9, 1, 3);
+        return false;
+    }
 
-			for ($i = 0; $i < 10; $i++) {
-				$sum += $check[$i] * $weights[$i];
-			}
+    /**
+     * Checks PESEL
+     * Universal Electronic System for Registration of the Population in Poland
+     *
+     * @param string $check Value to check
+     * @return bool Success.
+     * @link https://pl.wikipedia.org/wiki/PESEL
+     */
+    public static function pesel($check)
+    {
+        $pattern = '/^[0-9]{11}$/';
+        if (preg_match($pattern, $check)) {
+            $sum = 0;
+            $weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
 
-			$control = 10 - $sum % 10;
-			if ($control == 10) {
-				$control = 0;
-			}
+            for ($i = 0; $i < 10; $i++) {
+                $sum += $check[$i] * $weights[$i];
+            }
 
-			if ($check[10] == $control) {
-				return true;
-			}
-		}
-		return false;
-	}
+            $control = 10 - $sum % 10;
+            if ($control == 10) {
+                $control = 0;
+            }
 
-/**
- * Checks REGON
- * National Business Registry Number in Poland
- *
- * @param string $check Value to check
- * @return bool Success.
- * @link https://pl.wikipedia.org/wiki/REGON
- */
-	public static function regon($check) {
-		$pattern = '/^[0-9]{9}$/';
-		if (preg_match($pattern, $check)) {
-			$sum = 0;
-			$weights = array(8, 9, 2, 3, 4, 5, 6, 7);
+            if ($check[10] == $control) {
+                return true;
+            }
+        }
 
-			for ($i = 0; $i < 8; $i++) {
-				$sum += $check[$i] * $weights[$i];
-			}
+        return false;
+    }
 
-			$control = $sum % 11;
-			if ($control == 10) {
-				$control = 0;
-			}
+    /**
+     * Checks REGON
+     * National Business Registry Number in Poland
+     *
+     * @param string $check Value to check
+     * @return bool Success.
+     * @link https://pl.wikipedia.org/wiki/REGON
+     */
+    public static function regon($check)
+    {
+        $pattern = '/^[0-9]{9}$/';
+        if (preg_match($pattern, $check)) {
+            $sum = 0;
+            $weights = [8, 9, 2, 3, 4, 5, 6, 7];
 
-			if ($check[8] == $control) {
-				return true;
-			}
-		}
-		return false;
-	}
+            for ($i = 0; $i < 8; $i++) {
+                $sum += $check[$i] * $weights[$i];
+            }
 
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return bool Success.
- * @throws NotImplementedException
- */
-	public static function phone($check) {
-		throw new NotImplementedException('Validation method not implemented yet.');
-	}
+            $control = $sum % 11;
+            if ($control == 10) {
+                $control = 0;
+            }
 
+            if ($check[8] == $control) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks a phone number.
+     *
+     * @param string $check The value to check.
+     * @return bool Success.
+     * @throws NotImplementedException
+     */
+    public static function phone($check)
+    {
+        throw new NotImplementedException('Validation method not implemented yet.');
+    }
 }
