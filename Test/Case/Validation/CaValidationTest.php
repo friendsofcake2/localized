@@ -30,4 +30,22 @@ class CaValidationTest extends CakeTestCase
         $this->assertTrue(CaValidation::postal('L4W 1S2'));
         $this->assertFalse(CaValidation::postal('LI4 SOC'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        CaValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        CaValidation::personId('');
+    }
 }

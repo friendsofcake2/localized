@@ -47,7 +47,6 @@ class BrValidation extends LocalizedValidation
      *
      * @param string $check The value to check.
      * @return bool Success.
-     * @throws NotImplementedException
      */
     public static function personId($check)
     {

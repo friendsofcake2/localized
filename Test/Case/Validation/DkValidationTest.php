@@ -30,4 +30,22 @@ class DkValidationTest extends CakeTestCase
         $this->assertTrue(DkValidation::ssn('111111-3334'));
         $this->assertFalse(DkValidation::ssn('111111-333'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        DkValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPostal(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        DkValidation::postal('');
+    }
 }

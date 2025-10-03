@@ -62,4 +62,13 @@ class ItValidationTest extends CakeTestCase
         $this->assertFalse(ItValidation::cf('0234567890'));
         $this->assertFalse(ItValidation::cf('Fail'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        ItValidation::personId('');
+    }
 }

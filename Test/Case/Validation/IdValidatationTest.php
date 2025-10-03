@@ -40,4 +40,22 @@ class IdValidationTest extends CakeTestCase
         $this->assertTrue(IdValidation::postal('15000'));
         $this->assertFalse(IdValidation::postal('00091'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        IdValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        IdValidation::personId('');
+    }
 }

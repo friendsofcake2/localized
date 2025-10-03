@@ -102,4 +102,13 @@ class JpValidationTest extends CakeTestCase
         $this->assertFalse(JpValidation::zenkaku('0'));
         $this->assertFalse(JpValidation::zenkaku('a'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        JpValidation::personId('');
+    }
 }

@@ -41,4 +41,13 @@ class DeValidationTest extends CakeTestCase
         $this->assertTrue(DeValidation::postal('51109'));
         $this->assertFalse(DeValidation::postal('051109'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        DeValidation::personId('');
+    }
 }

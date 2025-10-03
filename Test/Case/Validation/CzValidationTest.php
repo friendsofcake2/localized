@@ -30,4 +30,22 @@ class CzValidationTest extends CakeTestCase
         $this->assertTrue(CzValidation::postal('123 45'));
         $this->assertFalse(CzValidation::postal('95616'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        CzValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        CzValidation::personId('');
+    }
 }

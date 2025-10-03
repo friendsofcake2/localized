@@ -28,4 +28,22 @@ class GbValidationTest extends CakeTestCase
         $this->assertTrue(GbValidation::postal('DT4 8PP'));
         $this->assertFalse(GbValidation::postal('DT4-8PP'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        GbValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        GbValidation::personId('');
+    }
 }

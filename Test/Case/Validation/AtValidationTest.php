@@ -39,4 +39,13 @@ class AtValidationTest extends CakeTestCase
         $this->expectException(NotImplementedException::class);
         AtValidation::phone('05110');
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        AtValidation::personId('');
+    }
 }

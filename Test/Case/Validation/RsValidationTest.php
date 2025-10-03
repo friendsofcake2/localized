@@ -56,4 +56,13 @@ class RsValidationTest extends CakeTestCase
         $this->assertFalse(RsValidation::addressCode('11090'));
         $this->assertFalse(RsValidation::addressCode('A11090'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        RsValidation::phone('');
+    }
 }

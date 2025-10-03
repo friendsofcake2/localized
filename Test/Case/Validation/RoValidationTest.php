@@ -31,4 +31,22 @@ class RoValidationTest extends CakeTestCase
         $this->assertFalse(RoValidation::postal('23708'));
         $this->assertFalse(RoValidation::postal('23 708'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        RoValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        RoValidation::personId('');
+    }
 }

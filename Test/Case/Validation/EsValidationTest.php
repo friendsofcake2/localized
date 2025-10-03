@@ -52,4 +52,13 @@ class EsValidationTest extends CakeTestCase
         $this->assertFalse(EsValidation::phone('127227227'));
         $this->assertFalse(EsValidation::phone('813 4567'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        EsValidation::personId('');
+    }
 }

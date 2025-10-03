@@ -31,4 +31,13 @@ class TrValidationTest extends CakeTestCase
         $this->assertFalse(TrValidation::postal('2300'));
         $this->assertFalse(TrValidation::postal('230000'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        TrValidation::phone('');
+    }
 }

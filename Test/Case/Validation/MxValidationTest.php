@@ -52,4 +52,13 @@ class MxValidationTest extends CakeTestCase
         $this->assertTrue(MxValidation::postal('98000'));
         $this->assertFalse(MxValidation::postal('1046'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        MxValidation::personId('');
+    }
 }

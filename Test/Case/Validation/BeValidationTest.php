@@ -30,4 +30,22 @@ class BeValidationTest extends CakeTestCase
         $this->assertTrue(BeValidation::postal('1804'));
         $this->assertFalse(BeValidation::postal('01804'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        BeValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        BeValidation::personId('');
+    }
 }

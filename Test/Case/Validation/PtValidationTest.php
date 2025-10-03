@@ -36,4 +36,22 @@ class PtValidationTest extends CakeTestCase
         $this->assertFalse(PtValidation::postal('13A89-4333'));
         $this->assertTrue(PtValidation::postal('1389-333'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        PtValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        PtValidation::personId('');
+    }
 }

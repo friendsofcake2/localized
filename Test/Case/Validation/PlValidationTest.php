@@ -70,4 +70,13 @@ class PlValidationTest extends CakeTestCase
         $this->assertFalse(PlValidation::regon('590096453'));
         $this->assertFalse(PlValidation::regon('591096454'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        PlValidation::phone('');
+    }
 }

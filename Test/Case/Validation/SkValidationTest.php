@@ -30,4 +30,22 @@ class SkValidationTest extends CakeTestCase
         $this->assertTrue(SkValidation::postal('95616'));
         $this->assertFalse(SkValidation::postal('0989'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        SkValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        SkValidation::personId('');
+    }
 }

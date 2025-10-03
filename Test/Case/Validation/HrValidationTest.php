@@ -29,4 +29,22 @@ class HrValidationTest extends CakeTestCase
         $this->assertTrue(HrValidation::postal('25616'));
         $this->assertFalse(HrValidation::postal('0989'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPhone(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        HrValidation::phone('');
+    }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        HrValidation::personId('');
+    }
 }

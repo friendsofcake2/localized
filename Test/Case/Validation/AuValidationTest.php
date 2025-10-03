@@ -57,4 +57,13 @@ class AuValidationTest extends CakeTestCase
         $this->assertFalse(AuValidation::phone('1300 TSTCAS')); // 1300 local call cost number (alphabetic representation).
         $this->assertFalse(AuValidation::phone('0198 333 888')); // prefix reserved for dial-up internet services.
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        AuValidation::personId('');
+    }
 }

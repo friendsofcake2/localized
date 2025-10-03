@@ -99,4 +99,13 @@ class InValidationTest extends CakeTestCase
         $this->assertFalse(InValidation::postal('test'));
         $this->assertFalse(InValidation::postal('1234567'));
     }
+
+    /**
+     * test not implemented method
+     */
+    public function testPersonId(): void
+    {
+        $this->expectException(NotImplementedException::class);
+        InValidation::personId('');
+    }
 }
