@@ -20,19 +20,16 @@ The master branch has the following requirements:
 
 ## Installation
 
-* Clone/Copy the files in this directory into `app/Plugin/Localized`
-* Ensure the plugin is loaded in `app/Config/bootstrap.php` by calling `CakePlugin::load('Localized');`
+Install the plugin with [Composer](https://getcomposer.org/):
 
-### Using Composer
-
-Ensure `require` is present in `composer.json`. This will install the plugin into `Plugin/Localized`:
-
+```bash
+composer require friendsofcake2/localized
 ```
-{
-    "require": {
-        "friendsofcake2/localized": "^2.7"
-    }
-}
+
+Then load the plugin in `app/Config/bootstrap.php`:
+
+```php
+CakePlugin::load('Localized');
 ```
 
 ## Model validation
@@ -43,16 +40,16 @@ Localized validation classes can be used for validating model fields.
 <?php
 App::uses('MxValidation', 'Localized.Validation');
 
-class Post extends AppModel {
-
-	public $validate = array(
-		'postal' => array(
-			'valid' => array(
-				'rule' => array('postal', null, 'mx'),
-				'message' => 'Must be valid mexico postal code'
-			)
-		)
-	);
+class Post extends AppModel
+{
+    public $validate = [
+        'postal' => [
+            'valid' => [
+                'rule' => array('postal', null, 'mx'),
+                'message' => 'Must be valid mexico postal code',
+            ],
+        ],
+    ];
 }
 ```
 
@@ -64,7 +61,7 @@ You can also access the localized validators any time you would call `Validation
 
 ```php
 if (Validation::postal($value, null, 'cz')) {
-	// Do something with valid postal code
+    // Do something with valid postal code
 }
 ```
 
@@ -78,13 +75,13 @@ App::uses($className, 'Localized.Validation');
 
 // Skip if we don't have that country, then only check for existence
 if (!class_exists($className) || !method_exists($className, 'postal')) {
-	return !empty($value);
+    return !empty($value);
 }
 
 try {
-	$result = Validation::postal($value, null, $country);
+    $result = Validation::postal($value, null, $country);
 } catch (NotImplementedException $e) {
-	$result = !empty($value);
+    $result = !empty($value);
 }
 
 return $result;
