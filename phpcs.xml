@@ -3,13 +3,13 @@
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
     <config name="php_version" value="80000"/>
 
+    <arg value="ps"/>
+    <arg name="colors"/>
+    <arg name="parallel" value="16"/>
+
     <file>./Locale</file>
     <file>./Test</file>
     <file>./Validation</file>
-
-    <arg value="ps"/>
-    <arg name="colors"/>
-    <arg name="parallel" value="8"/>
 
     <rule ref="CakePHP">
         <!-- ===== Namespace and Class Rules ===== -->
@@ -59,22 +59,22 @@
     </rule>
 
     <rule ref="CakePHP.Commenting.FunctionComment.Missing">
-        <exclude-pattern>Test/Case/**</exclude-pattern>
+        <exclude-pattern>Test/Case/*</exclude-pattern>
     </rule>
 
     <!-- Allow multiple classes in test files only (CakePHP2 test pattern) -->
     <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
-        <exclude-pattern>Test/Case/**</exclude-pattern>
+        <exclude-pattern>Test/Case/*</exclude-pattern>
     </rule>
 
     <!-- Allow non-camelCase method names in Controllers (CakePHP2 action naming convention) -->
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
-        <exclude-pattern>Controller/**</exclude-pattern>
-        <exclude-pattern>Console/Command/**</exclude-pattern>
+        <exclude-pattern>Controller/*</exclude-pattern>
+        <exclude-pattern>Console/Command/*</exclude-pattern>
     </rule>
 
     <!-- Require return type hints for Test/Case only -->
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
-        <include-pattern>./Test/Case/**</include-pattern>
+        <include-pattern>Test/Case/*</include-pattern>
     </rule>
 </ruleset>
