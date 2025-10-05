@@ -1,11 +1,11 @@
 # CakePHP 2 Localized plugin
 
-[![GitHub License](https://img.shields.io/github/license/friendsofcake2/localized?label=License)](LICENSE)
-[![Packagist Version](https://img.shields.io/packagist/v/friendsofcake2/localized?label=Packagist)](https://packagist.org/packages/friendsofcake2/localized)
-[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/localized/php?logo=php&logoColor=%23FFFFFF&label=PHP&labelColor=%23777BB4&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/localized)
-[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/friendsofcake2/localized/friendsofcake2/cakephp?logo=cakephp&logoColor=%23FFFFFF&label=CakePHP&labelColor=%23D33C43&color=%23FFFFFF)](https://packagist.org/packages/friendsofcake2/localized)
-[![CI](https://img.shields.io/github/actions/workflow/status/friendsofcake2/localized/CI.yml?label=CI)](https://github.com/friendsofcake2/localized/actions/workflows/CI.yml)
-[![Codecov](https://img.shields.io/codecov/c/gh/friendsofcake2/localized?label=Coverage)](https://codecov.io/gh/friendsofcake2/localized)
+[![GitHub License](https://img.shields.io/github/license/pieceofcake2/localized?label=License)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/pieceofcake2/localized?label=Packagist)](https://packagist.org/packages/pieceofcake2/localized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/pieceofcake2/localized/php?logo=php&logoColor=%23FFFFFF&label=PHP&labelColor=%23777BB4&color=%23FFFFFF)](https://packagist.org/packages/pieceofcake2/localized)
+[![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/pieceofcake2/localized/pieceofcake2/cakephp?logo=cakephp&logoColor=%23FFFFFF&label=CakePHP&labelColor=%23D33C43&color=%23FFFFFF)](https://packagist.org/packages/pieceofcake2/localized)
+[![CI](https://img.shields.io/github/actions/workflow/status/pieceofcake2/localized/CI.yml?label=CI)](https://github.com/pieceofcake2/localized/actions/workflows/CI.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/pieceofcake2/localized?label=Coverage)](https://codecov.io/gh/pieceofcake2/localized)
 
 **This is forked for CakePHP2.**
 
@@ -23,7 +23,7 @@ The master branch has the following requirements:
 Install the plugin with [Composer](https://getcomposer.org/):
 
 ```bash
-composer require friendsofcake2/localized
+composer require pieceofcake2/localized
 ```
 
 Then load the plugin in `app/Config/bootstrap.php`:
@@ -125,4 +125,4 @@ Apart from that you can also define further validation methods in your implement
 
 ## Issues with Localized
 
-If you have issues with Localized, you can report them at https://github.com/friendsofcake2/localized/issues
+If you have issues with Localized, you can report them at https://github.com/pieceofcake2/localized/issues
